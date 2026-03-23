@@ -1,0 +1,7 @@
+For your question about "where is perceptron trick taught", I can help you with that.
+
+The Perceptron trick is primarily discussed in one of the videos titled "Logistic Regression Perceptron Trick.mp3". 
+
+To understand this concept, start from the video titled "Logistic Regression Perceptron Trick.mp3" and begin at timestamp 1667.0 to 1669.0. This section will cover the basics of the Perceptron trick.
+
+You can find these timestamps in the video subtitles provided earlier.
