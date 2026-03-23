@@ -18,5 +18,17 @@ Use the file preprocess_json to convert the json files to a dataframe with Embed
 
 Read the joblib file and load it into the memory. Then create a relevant prompt as per the user query and feed it to the LLM
 
+## Using Precomputed Embeddings
+
+This project includes **precomputed embeddings stored in `embeddings.joblib`**.  
+The system loads these embeddings directly during query processing to perform semantic similarity search, avoiding the need to regenerate embeddings each time.
+LINK : https://drive.google.com/file/d/16lO67HTDNp8a67Hjwygl5l2fzrWHarDT/view?usp=sharing
+Embeddings only need to be regenerated if new videos or transcripts are added.
+
+To regenerate embeddings (optional):
+
+```bash
+python embeddings.py
+
 
 
