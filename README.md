@@ -16,16 +16,16 @@ A retrieval-augmented generation (RAG) pipeline over lecture videos. Lectures ar
 The pipeline has two phases: **indexing**, run once over your videos, and **querying**, run for every question.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph IDX["① Indexing — run once"]
-        direction TB
+        direction LR
         A["🎬 Lecture videos<br/>videos/"] -->|"ffmpeg"| B["🔊 Audio<br/>audios/*.mp3"]
         B -->|"Whisper small<br/>Hindi → English"| C["📝 Timestamped chunks<br/>jsons/*.json"]
         C -->|"bge-m3 via Ollama"| D[("🧮 embeddings.joblib<br/>chunk vectors")]
     end
 
     subgraph QRY["② Query — every question"]
-        direction TB
+        direction LR
         Q["❓ Student question"] -->|"bge-m3"| QE["Question vector"]
         QE --> S{"Cosine similarity<br/>top 5 chunks"}
         S --> P["Prompt with chunks<br/>title · start · end · text"]
@@ -33,7 +33,7 @@ flowchart LR
         R --> UI["🖥️ Tkinter viewer<br/>+ response.txt"]
     end
 
-    D -.-> S
+    IDX -.->|"questions are searched against embeddings.joblib"| QRY
 ```
 
 ### One question, step by step
